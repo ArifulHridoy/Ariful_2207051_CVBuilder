@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane style="-fx-background-color: #f0f4f8; -fx-font-family: 'Segoe UI';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheikh_2207051_cvbuilder.controllers.HomeController">
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #000000; -fx-padding: 12;">
+            <Label alignment="CENTER" prefHeight="22.0" prefWidth="373.0" style="-fx-text-fill: #8297af; -fx-font-size: 18px;                           -fx-font-weight: bold;                           -fx-font-family: 'Bell MT';" text="CV Builder APK" />
+        </HBox>
+    </top>
+
+    <!-- Center -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-background-color: white;                      -fx-background-radius: 10;                      -fx-padding: 30;                      -fx-max-width: 400;                      -fx-max-height: 300;                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);" BorderPane.alignment="CENTER">
+
+            <Label style="-fx-text-fill: #1e293b;                           -fx-font-size: 16px;                           -fx-font-weight: bold;" text="Welcome to the CV Builder" wrapText="true" />
+
+            <Label style="-fx-text-fill: #475569;                           -fx-font-size: 11px;              -fx-font-weight: bold;             -fx-text-alignment: center;" text="Create your professional-looking CV. Click below to start." textFill="RED" wrapText="true">
+                <font>
+                    <Font size="10.0" />
+                </font>
+            </Label>
+
+            <Button onAction="#onCreateNewCV" style="-fx-background-color: #2563eb;                            -fx-text-fill: white;                            -fx-font-size: 13px;                            -fx-font-weight: bold;                            -fx-background-radius: 5;                            -fx-padding: 8 20;                            -fx-cursor: hand;" text="Create New CV" />
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #000000; -fx-padding: 10 15;">
+            <Label style="-fx-text-fill: #5d7fa6;                           -fx-font-size: 12px;" text="© 2025 All Rights Reserved by Ariful" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
