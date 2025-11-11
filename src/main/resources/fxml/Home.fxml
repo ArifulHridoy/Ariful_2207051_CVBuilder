@@ -4,7 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane style="-fx-background-color: #f0f4f8; -fx-font-family: 'Segoe UI';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheikh_2207051_cvbuilder.controllers.HomeController">
+<BorderPane style="-fx-background-color: #f0f4f8; -fx-font-family: 'Segoe UI';"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sheikh_2207051_cvbuilder.controllers.HomeController">
 
     <!-- Header -->
     <top>
