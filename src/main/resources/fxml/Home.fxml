@@ -2,26 +2,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane minHeight="500" minWidth="700" prefHeight="650" prefWidth="900" style="-fx-background-color: #000000; -fx-font-family: 'Roboto Regular';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheikh_2207051_cvbuilder.controllers.HomeController">
-
+<BorderPane prefHeight="700" prefWidth="1000" style="-fx-background-color: #f8f9fa; -fx-font-family: 'Montserrat';" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sheikh_2207051_cvbuilder.controllers.HomeController">
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #ffffff; -fx-padding: 12;">
-            <Label alignment="CENTER" prefHeight="36.0" prefWidth="864.0" style="-fx-text-fill: #000000; -fx-font-size: 28px; -fx-font-weight: bold; -fx-font-family: 'Montserrat Bold';" text="CV Builder APK" />
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: linear-gradient(to right, #00a8ff, #0078d4); -fx-padding: 16; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="890.0" style="-fx-text-fill: rgba(255,255,255,0.84); -fx-font-size: 26px; -fx-font-weight: 800;" text="✍ CV Builder" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 14px;" text="👤 Ariful" />
         </HBox>
     </top>
 
     <center>
-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #000000; -fx-background-radius: 10; -fx-padding: 30;                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 2);" BorderPane.alignment="CENTER">
-            <Label style="-fx-text-fill: #a2c7ff; -fx-font-size: 16px; -fx-font-weight: bold;" text="Welcome to the CV Builder" wrapText="true" />
-            <Label style="-fx-text-fill: #9d93ff; -fx-font-size: 12px; -fx-font-weight: bold;                           -fx-text-alignment: center;" text="Create your professional-looking CV here. Click below to start." wrapText="true" />
-            <Button onAction="#onCreateNewCV" prefHeight="45" prefWidth="250" style="-fx-background-color: #0046cc; -fx-text-fill: #ffffff;                            -fx-font-size: 13px; -fx-font-weight: bold;                            -fx-background-radius: 5; -fx-padding: 8 20;                            -fx-cursor: hand;" text="Create Your CV" />
+        <VBox alignment="CENTER" spacing="30" style="-fx-padding: 30;">
+            <VBox alignment="CENTER" spacing="20" style="-fx-background-color: linear-gradient(to bottom, #ffffff, #f0f4ff); -fx-background-radius: 16;
+            -fx-padding: 50; -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.35), 20, 0, 0, 5), dropshadow(gaussian, rgba(255,184,108,0.25), 10, 0, 0, 5);">
+                <Label style="-fx-text-fill: #1f1f1f; -fx-font-size: 24px; -fx-font-weight: 700;" text="Welcome to CV Builder" />
+                <Label style="-fx-text-fill: #6b6b6b; -fx-font-size: 14px; -fx-text-alignment: center;" text="Create a professional, modern, and elegant CV in minutes." wrapText="true" />
+                <Button onAction="#onCreateNewCV" prefHeight="80" prefWidth="80" style="-fx-background-color: #4a90e2; -fx-text-fill: white; -fx-font-size: 32px;
+                -fx-font-weight: bold; -fx-background-radius: 50%; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(74,144,226,0.6), 15, 0.5, 0, 4), dropshadow(gaussian, rgba(255,152,0,0.3), 10, 0.3, 0, 2);                         " text="✦" />
+                <Label style="-fx-text-fill: #2b2b2b; -fx-font-size: 14px; -fx-font-weight: 500;" text="Create New CV" />
+            </VBox>
         </VBox>
     </center>
 
     <bottom>
-        <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-padding: 10 15;">
-            <Label style="-fx-text-fill: #5d7fa6; -fx-font-size: 12px;" text="© 2025 All Rights Reserved by Ariful" />
+        <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #ffffff; -fx-padding: 12 16; -fx-border-color: #e5e5e5; -fx-border-width: 1 0 0 0;">
+            <Label style="-fx-text-fill: #9b9b9b; -fx-font-size: 11px;" text="© 2025 Ariful — All Rights Reserved" />
         </HBox>
     </bottom>
-
 </BorderPane>

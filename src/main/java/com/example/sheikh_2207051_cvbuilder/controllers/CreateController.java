@@ -36,7 +36,7 @@ public class CreateController{
         saveData();
         Parent home=FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
         Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(home,900,650));
+        stage.setScene(new Scene(home,900,750));
     }
     @FXML private void onUploadPhoto(ActionEvent event){
         FileChooser chooser=new FileChooser();
@@ -62,8 +62,8 @@ public class CreateController{
         photoView.setImage(null);
     }
     @FXML private void onGenerateCV(ActionEvent event) throws IOException {
-        if(fullNameField.getText().isBlank() || emailField.getText().isBlank()){
-            showAlert(Alert.AlertType.WARNING,"Please enter at least Full Name and Email!!!");
+        if(fullNameField.getText().isBlank()||phoneField.getText().isBlank()||addressField.getText().isBlank()||educationArea.getText().isBlank()||skillsArea.getText().isBlank()||experienceArea.getText().isBlank()||projectsArea.getText().isBlank()|| emailField.getText().isBlank()){
+            showAlert(Alert.AlertType.WARNING,"Please enter the full form blank field is not allowed!!!");
             return;
         }
 

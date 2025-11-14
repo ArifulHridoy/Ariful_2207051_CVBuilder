@@ -58,7 +58,7 @@ public class PreviewController
         FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/CreateCV.fxml"));
         Parent createRoot=loader.load();
         Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(createRoot,900,650));
+        stage.setScene(new Scene(createRoot,900,750));
     }
 
     @FXML private void onBackHome(ActionEvent event) throws IOException{
