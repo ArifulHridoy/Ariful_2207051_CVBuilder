@@ -1,5 +1,6 @@
 package com.example.sheikh_2207051_cvbuilder.controllers;
 import com.example.sheikh_2207051_cvbuilder.model.CVModel;
+import com.example.sheikh_2207051_cvbuilder.model.CVData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,10 @@ public class CreateController{
     @FXML private ImageView photoView;
     private Image photo;
 
+    @FXML public void initialize(){loadData();}
+
     @FXML private void onBack(ActionEvent event) throws IOException{
+        saveData();
         Parent home=FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
         Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(home,900,650));
@@ -62,6 +66,7 @@ public class CreateController{
             showAlert(Alert.AlertType.WARNING,"Please enter at least Full Name and Email!!!");
             return;
         }
+
         CVModel model=new CVModel();
         model.setFullName(fullNameField.getText().trim());
         model.setEmail(emailField.getText().trim());
@@ -72,6 +77,8 @@ public class CreateController{
         model.setExperience(experienceArea.getText().trim());
         model.setProjects(projectsArea.getText().trim());
         model.setPhoto(photo);
+
+        saveData();
 
        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Preview.fxml"));
         Parent previewRoot=loader.load();
@@ -86,4 +93,30 @@ public class CreateController{
         alert.setContentText(message);
         alert.showAndWait();
     }
+    private void saveData() {
+        CVData data = CVData.getInstance();
+        data.fullName = fullNameField.getText();
+        data.email = emailField.getText();
+        data.phone = phoneField.getText();
+        data.address = addressField.getText();
+        data.education = educationArea.getText();
+        data.skills = skillsArea.getText();
+        data.experience = experienceArea.getText();
+        data.projects = projectsArea.getText();
+        data.photo=photo;
+    }
+    private void loadData()
+    {
+        CVData data =CVData.getInstance();
+
+        fullNameField.setText(data.fullName);
+        emailField.setText(data.email);
+        phoneField.setText(data.phone);
+        addressField.setText(data.address);
+        educationArea.setText(data.education);
+        skillsArea.setText(data.skills);
+        experienceArea.setText(data.experience);
+        projectsArea.setText(data.projects);
+    }
+
 }
