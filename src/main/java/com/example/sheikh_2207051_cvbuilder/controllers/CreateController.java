@@ -73,7 +73,7 @@ public class CreateController{
         model.setProjects(projectsArea.getText().trim());
         model.setPhoto(photo);
 
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Preview.fxml"));
+       FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Preview.fxml"));
         Parent previewRoot=loader.load();
         PreviewController pc=loader.getController();
         pc.setModel(model);
