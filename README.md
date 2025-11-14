@@ -19,7 +19,8 @@ Ariful_2207051_CVBuilder/
 │   │   │   │   ├── CVBuilderController.java
 │   │   │   │   └── PreviewController.java
 │   │   │   ├── model/
-│   │   │   │   └── CVModel.java
+│   │   │   │   ├── CVModel.java
+│   │   │   │   └── CVData.java
 │   │   │   └── Main.java
 │   │   │
 │   │   └── resources/
@@ -29,6 +30,7 @@ Ariful_2207051_CVBuilder/
 │   │           └── Preview.fxml
 │
 └── README.md
+
 
 ```
 
