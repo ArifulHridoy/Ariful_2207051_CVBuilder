@@ -60,8 +60,23 @@ JavaFX (FXML, Scene Builder)
 
 MVC Design Pattern
 
-Model: CVModel.java
+Model: CVModel.java, CVData.java
 
 View: Home.fxml, CVBuilder.fxml, Preview.fxml
 
 Controller: HomeController.java, CVBuilderController.java, PreviewController.java
+
+---
+
+💻 Installation & Running
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ArifulHridoy/Ariful_2207051_CVBuilder.git
+```
+2. Open the project in your IDE (IntelliJ IDEA, Eclipse, etc.).
+
+3. Make sure Java 17+ and JavaFX SDK are installed.
+
+4. Run Main.java to launch the application.
