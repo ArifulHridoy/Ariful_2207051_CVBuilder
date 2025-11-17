@@ -13,6 +13,6 @@ public class HomeController
     @FXML private void onCreateNewCV(ActionEvent event) throws IOException {
         Parent createRoot=FXMLLoader.load(getClass().getResource("/fxml/CreateCV.fxml"));
         Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(createRoot,900,750));
+        stage.setScene(new Scene(createRoot));
     }
 }

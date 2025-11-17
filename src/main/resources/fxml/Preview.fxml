@@ -13,8 +13,8 @@
     </top>
 
     <center>
-        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
-            <VBox prefWidth="820" spacing="12" style="-fx-background-color: #ffffff;
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; ">
+            <VBox prefWidth="820" spacing="12" style="-fx-background-color: linear-gradient(to bottom right, #ffffff, #929dbd);
             -fx-padding: 20; -fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 5; -fx-background-radius: 5;">
 
                 <HBox alignment="TOP_LEFT" spacing="20">
