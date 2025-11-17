@@ -86,6 +86,8 @@ public class CreateController{
         pc.setModel(model);
         Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(previewRoot,900,700));
+        Alert a=new Alert(Alert.AlertType.INFORMATION, "CV Created Successfully");
+        a.show();
     }
     private void showAlert(Alert.AlertType type,String message){
         Alert alert=new Alert(type);
@@ -117,6 +119,10 @@ public class CreateController{
         skillsArea.setText(data.skills);
         experienceArea.setText(data.experience);
         projectsArea.setText(data.projects);
+        if(data.photo!=null) {
+            photo=data.photo;
+            photoView.setImage(photo);
+        }
     }
 
 }
