@@ -1,6 +1,9 @@
 package com.example.sheikh_2207051_cvbuilder.controllers;
+
+import com.example.sheikh_2207051_cvbuilder.db.CVDao;
 import com.example.sheikh_2207051_cvbuilder.model.CVModel;
 import com.example.sheikh_2207051_cvbuilder.model.CVData;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +20,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CreateController{
     @FXML private TextField fullNameField;
@@ -29,6 +33,7 @@ public class CreateController{
     @FXML private TextArea projectsArea;
     @FXML private ImageView photoView;
     private Image photo;
+    private CVModel editingModel = null;
 
     @FXML public void initialize(){loadData();}
 
@@ -67,7 +72,7 @@ public class CreateController{
             return;
         }
 
-        CVModel model=new CVModel();
+        CVModel model = editingModel == null ? new CVModel() : editingModel;
         model.setFullName(fullNameField.getText().trim());
         model.setEmail(emailField.getText().trim());
         model.setPhone(phoneField.getText().trim());
@@ -77,17 +82,61 @@ public class CreateController{
         model.setExperience(experienceArea.getText().trim());
         model.setProjects(projectsArea.getText().trim());
         model.setPhoto(photo);
-
         saveData();
 
-       FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Preview.fxml"));
-        Parent previewRoot=loader.load();
-        PreviewController pc=loader.getController();
-        pc.setModel(model);
-        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(previewRoot,900,700));
-        Alert a=new Alert(Alert.AlertType.INFORMATION, "CV Created Successfully");
-        a.show();
+        // Save to database in background (insert or update)
+        CVDao dao = new CVDao();
+        Task<Integer> task = new Task<>(){
+            @Override
+            protected Integer call() throws Exception {
+                if (model.getId() > 0) {
+                    dao.update(model);
+                    return model.getId();
+                } else {
+                    return dao.insert(model);
+                }
+            }
+        };
+        task.setOnSucceeded(t -> {
+            int id = task.getValue();
+            if (id > 0) model.setId(id);
+            try {
+                FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Preview.fxml"));
+                Parent previewRoot=loader.load();
+                PreviewController pc=loader.getController();
+                pc.setModel(model);
+                Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(previewRoot,900,700));
+                Alert a=new Alert(Alert.AlertType.INFORMATION, "CV Saved and Created Successfully");
+                a.show();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        task.setOnFailed(t -> {
+            Throwable ex = task.getException();
+            ex.printStackTrace();
+            Alert a=new Alert(Alert.AlertType.ERROR, "Failed to save CV: " + ex.getMessage());
+            a.show();
+        });
+        new Thread(task).start();
+    }
+
+    public void setModel(CVModel model) {
+        this.editingModel = model;
+        if (model == null) return;
+        fullNameField.setText(model.getFullName());
+        emailField.setText(model.getEmail());
+        phoneField.setText(model.getPhone());
+        addressField.setText(model.getAddress());
+        educationArea.setText(model.getEducation());
+        skillsArea.setText(model.getSkills());
+        experienceArea.setText(model.getExperience());
+        projectsArea.setText(model.getProjects());
+        if (model.getPhoto() != null) {
+            this.photo = model.getPhoto();
+            photoView.setImage(photo);
+        }
     }
     private void showAlert(Alert.AlertType type,String message){
         Alert alert=new Alert(type);
