@@ -18,9 +18,19 @@ Ariful_2207051_CVBuilder/
 │   │   │   │   ├── HomeController.java
 │   │   │   │   ├── CVBuilderController.java
 │   │   │   │   └── PreviewController.java
+│   │   │   │
+│   │   │   ├── db/
+│   │   │   │   ├── CVDao.java
+│   │   │   │   └── Database.java
+│   │   │   │
+│   │   │   ├── util/
+│   │   │   │   ├── ImageUtils.java
+│   │   │   │   └── JsonUtil.java
+│   │   │   │
 │   │   │   ├── model/
 │   │   │   │   ├── CVModel.java
 │   │   │   │   └── CVData.java
+│   │   │   │
 │   │   │   └── Main.java
 │   │   │
 │   │   └── resources/
@@ -29,6 +39,7 @@ Ariful_2207051_CVBuilder/
 │   │           ├── CVBuilder.fxml
 │   │           └── Preview.fxml
 │
+├── cvbuilder.db
 └── README.md
 
 
